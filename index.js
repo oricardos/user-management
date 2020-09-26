@@ -1,22 +1,21 @@
-let name = document.querySelector("#exampleInputName");
-let genre = document.querySelectorAll("#form-user-create [name=genre]:checked");
-let birth = document.querySelector("#exampleInputBirth");
-let country = document.querySelector("#exampleInputCountry");
-let email = document.querySelector("#exampleInputEmail");
-let password = document.querySelector("#exampleInputPassword");
-let photo = document.querySelector("#exampleInputFile");
-let admin = document.querySelector("#exampleInputAdmin");
-
 let fields = document.querySelectorAll("#form-user-create [name]");
+let user = {
 
-fields.forEach(function(field, index){
+};
+
+
+
+document.getElementById("form-user-create").addEventListener("submit", function(event){
+    event.preventDefault();
+    
+    fields.forEach(function(field, index){
 
     if (field.name == "gender"){
         if (field.checked){
-            console.log("SIM", field);
+            user[field.name] = field.value;
         }
     } else {
-        console.log("Não");
+        user[field.name] = field.value;
     }
-    console.log(index);
+});
 });
