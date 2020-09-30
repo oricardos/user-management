@@ -18,7 +18,7 @@ class UserController {
     getValues(){
         let user = {};
 
-        this.formEl.elements.forEach(function(field, index){
+        [...this.formEl.elements].forEach(function(field, index){
             if (field.name == "gender"){
                 if (field.checked){
                     user[field.name] = field.value;
@@ -41,7 +41,7 @@ class UserController {
     }
 
     addLine(dataUser){
-        this.tableEl(tableId).innerHTML = `
+        this.tableEl.innerHTML = `
             <tr>
                 <td><img src="dist/img/user1-128x128.jpg" alt="User Image" class="img-circle img-sm"></td>
                 <td>${dataUser.name}</td>
